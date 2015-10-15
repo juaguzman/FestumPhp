@@ -1,29 +1,31 @@
 <?php
+if($_SERVER["REQUEST_METHOD"]=="POST")
+{
+    require './conectar.php';
+    insertarUsuario();
+}
 
-$nombre = $POST['nombre'];
-$id     = $POST['id'];
-$fecha_nas=$POST['fechaN'];
+function insertarUsuario()
+{
+   
+$nombre = $_POST['nombre'];
+$id     = $_POST['id'];
+$fecha_nas=$_POST['fechaN'];
 
-include './conectar.php';
-        $mysql = new conexio111n();
+
+        $mysql = new conexion();
         $mysqli=$mysql->conctar();
  
-        $datos = array();
         
-        if(!isset($nombre)| !isset($nombre) | !isset($nombre) )
-        {
-            echo "Error falta un campo de la informacion";
-        }
-        else 
-            {
-                $sql ="INSERT INTO `carnaval`.`usuario` (`id`, `nombre`, `fecha_nas`) VALUES($id, '$nombre', '$fecha_nas');";
-                $consulta=  mysql_query($sql);
-                if ($consulta)
-            {
-                echo "TRUE";
-            }
-            else 
-            {
-                echo "FALSE";
-            }
-            }
+      
+       
+            echo "$nombre de usuario";
+            echo "$id de usuario";
+            echo "$fecha_nas de usuario";
+               $query ="INSERT INTO usuario (id, nombre, fecha_nas) VALUES ($id, '$nombre', '$fecha_nas');";
+                
+               mysqli_query($mysqli, $query) or die(mysqli_errno($mysqli));
+               mysqli_close($mysqli);
+            
+            
+}

@@ -2,9 +2,11 @@
 
 class conexion
 {
+    
+    
     public function conctar()
     {
-        $mysqli = new mysqli("localhost", "root", "mysql", "Programacion");
+        $mysqli = new mysqli("localhost", "root", "mysql", "carnaval");
 /* comprobar la conexión */
         if (mysqli_connect_errno()) 
             {
@@ -14,5 +16,7 @@ class conexion
             
       return $mysqli;
     }
+    
+   
        
 }
