@@ -6,7 +6,7 @@ include './conectar.php';
  
         $datos = array();
         
- $result1 = $mysqli->query("SELECT * FROM `miprograma`");
+ $result1 = $mysqli->query("SELECT * FROM miprograma WHERE usuario_idcan='$id';");
  
 while ($row = mysqli_fetch_object($result1)) 
                 {
